@@ -1,7 +1,5 @@
 #!/bin/sh
 
-export WP_CLI_PHP_ARGS='-d memory_limit=512M'
-
 if [ ! -f "/var/www/html/wp-config.php" ]; then
     echo "WordPress 초기 설치를 시작합니다..."
 
@@ -11,7 +9,7 @@ if [ ! -f "/var/www/html/wp-config.php" ]; then
     done
     echo "MariaDB 연결 성공!"
 
-    wp core download --allow-root --path='/var/www/html'
+    php -d memory_limit=512M $(which wp) core download --allow-root --path=/var/www/html
 
     wp config create \
         --allow-root \
