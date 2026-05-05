@@ -1,5 +1,7 @@
 #!/bin/sh
 
+export WP_CLI_PHP_ARGS='-d memory_limit=512M'
+
 if [ ! -f "/var/www/html/wp-config.php" ]; then
     echo "WordPress 초기 설치를 시작합니다..."
 
